@@ -1,0 +1,333 @@
+/* ================== Категории ================== */
+.rkz-category-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.rkz-list-group-item {
+    background-color: #ffffff;
+    padding: 10px;
+    border: none;
+}
+
+.rkz-category-link {
+    color: inherit;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rkz-category-link:hover {
+    text-decoration: underline;
+}
+
+.rkz-list-group-item-active {
+    background-color: #7300d1;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+}
+
+/* ================== Горизонтальные категории ================== */
+.rkz-horizontal-categories {
+    background-color: #fff;
+    padding: 10px 0;
+}
+
+.rkz-category-tabs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rkz-category-tab {
+    padding: 10px 25px;
+    margin: 5px;
+    border: 1px solid #7300d1;
+    color: #7300d1;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.rkz-category-tab.active {
+    background-color: #7300d1;
+    color: white;
+    font-weight: bold;
+}
+
+.rkz-category-tab:hover {
+    background-color: #7300d1;
+    color: white;
+}
+
+/* ================== Магазин ================== */
+.rkz-shop-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ================== Карточки продуктов ================== */
+.rkz-product-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+
+.rkz-product-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем текст по вертикали */
+}
+
+
+.rkz-product-card:hover {
+    transform: scale(1.03);
+}
+
+.rkz-product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.rkz-product-category {
+    font-size: 0.95rem;
+    color: #7300d1;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.rkz-product-name {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.rkz-product-price {
+    font-size: 1.1rem;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rkz-old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+.rkz-discount-price {
+    color: #000000;
+    font-weight: bold;
+}
+
+.rkz-btn-primary {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #7300d1;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.rkz-btn-primary:hover {
+    background-color: #8100eb;
+}
+
+.rkz-btn-apply-filters {
+    background-color: #7300d1;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.rkz-btn-apply-filters:hover {
+    background-color: #5c00ab;
+}
+
+/* Псевдоиконка избранного */
+.rkz-favorite-link {
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.rkz-favorite-link::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: url("/static/img/fullheart.png") no-repeat center center;
+    background-size: contain;
+}
+
+/* ================== Фильтры ================== */
+.rkz-filter-block label {
+    transition: color 0.2s ease, font-weight 0.2s ease;
+    cursor: pointer;
+}
+
+.rkz-filter-block input[type="checkbox"]:checked + label,
+.rkz-filter-block input[type="checkbox"]:checked ~ span {
+    font-weight: bold;
+    color: #7300d1;
+}
+
+/* ================== Range (ползунки) ================== */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #7300d1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #7300d1;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ================== Нет товаров ================== */
+.rkz-no-products {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    margin-top: 40px;
+}
+
+/* ========== Пагинация ========== */
+.rkz-pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pagination-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Важно: делаем горизонтально */
+    justify-content: center;
+    gap: 8px; /* Расстояние между кнопками */
+}
+
+.rkz-page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Все кнопки круглые */
+    background-color: #f1f1f1; /* Серый фон */
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.rkz-page-link:hover {
+    background-color: #ff7f50; /* При наведении */
+}
+
+.rkz-page-item {
+    display: flex;
+}
+
+.rkz-page-item.active .rkz-page-link {
+    background-color: #ff7f50; /* Цвет активной страницы */
+    color: white;
+    font-weight: bold;
+}
+
+.rkz-page-item-disabled .rkz-page-link {
+    color: #aaa;
+    border-color: #ddd;
+    cursor: not-allowed;
+    background-color: #f9f9f9;
+}
+
+/* Стили для активной страницы пагинации */
+.rkz-page-item.active .rkz-page-link {
+    background-color: #800080; /* Фиолетовый цвет */
+    color: white;              /* Белый текст */
+    border-radius: 50%;        /* Скругленные углы */
+    padding: 5px 10px;         /* Немного отступов */
+    font-weight: bold;         /* Жирный шрифт */
+}
+
+.rkz-page-item .rkz-page-link {
+    color: #333;               /* Цвет для обычных номеров */
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.rkz-page-item .rkz-page-link:hover {
+    background-color: #f0f0f0;  /* Цвет при наведении на ссылку */
+}
+
+
+@media (max-width: 600px) {
+    .rkz-page-link {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ================== Медиа-запросы ================== */
+@media (max-width: 768px) {
+    .rkz-product-card {
+        width: 100%;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+    .rkz-shop-title {
+        font-size: 1.5rem;
+    }
+    .rkz-category-link {
+        font-size: 1rem;
+    }
+}

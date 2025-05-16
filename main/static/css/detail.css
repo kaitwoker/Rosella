@@ -1,0 +1,266 @@
+/* Контейнер страницы */
+.dt-container {
+    padding: 20px 0;
+}
+
+/* Контейнер изображений */
+.dt-images {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Отступ между основным фото и миниатюрами */
+}
+
+/* Основное изображение */
+.dt-main-image-container {
+    position: relative;
+    flex-grow: 5; /* Растягиваем основной контейнер */
+    display: flex;
+    justify-content: center;
+}
+
+.dt-main-image {
+    width: 250%;
+    max-width: 1000px; /* Ограничение размера */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Контейнер миниатюр справа */
+.dt-thumbnails-container {
+    display: flex;
+    flex-direction: column; /* Миниатюры идут вертикально */
+    gap: 20px;
+    align-items: center; /* Выравнивание по центру */
+}
+
+.dt-thumb {
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.dt-thumb:hover {
+    transform: scale(1.1);
+    border-color: #7300d1;
+}
+
+/* Анимация исчезновения (уход внутрь) */
+.swipe-out-left {
+    transform: translateX(-20%);
+    opacity: 0;
+}
+
+.swipe-out-right {
+    transform: translateX(20%);
+    opacity: 0;
+}
+
+/* Анимация появления (изнутри) */
+.swipe-in-left {
+    transform: translateX(20%);
+    opacity: 0;
+    animation: swipeIn 0.3s forwards;
+}
+
+.swipe-in-right {
+    transform: translateX(-20%);
+    opacity: 0;
+    animation: swipeIn 0.3s forwards;
+}
+
+/* Универсальная анимация входа */
+@keyframes swipeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 5;
+    }
+}
+/* Правая часть: детали продукта */
+.dt-details {
+    padding: px;
+}
+
+.dt-product-name {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.dt-category {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.dt-category a {
+    color: #7300d1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.dt-category a:hover {
+    color: #8100eb;
+}
+
+.dt-description {
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+.dt-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dt-old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.dt-discount-price {
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.dt-price-no-discount {
+    color: #000;
+}
+
+/* Кнопка добавления в корзину */
+.dt-add-to-cart {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #7300d1
+}
+
+.dt-add-to-cart:hover {
+    background-color: #8100eb;
+}
+
+/* Блок отзывов */
+.product-reviews {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Заголовок отзывов */
+.product-reviews h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Список отзывов */
+.reviews-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Одиночный отзыв */
+.review-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+/* При наведении — лёгкий фон */
+.review-item:hover {
+  background-color: #fafafa;
+}
+
+/* Имя пользователя и рейтинг */
+.review-item strong {
+  font-weight: 600;
+  color: #7300d1;
+}
+
+.review-item small {
+  display: block;
+  color: #888;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* Текст отзыва */
+.review-item p {
+  margin: 8px 0;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Кнопка «Оставить отзыв» */
+.product-reviews .btn-outline-primary {
+  border-color: #7300d1;
+  color: #7300d1;
+}
+
+.product-reviews .btn-outline-primary:hover {
+  background-color: #7300d1;
+  color: #fff;
+}
+
+/* Адаптивные стили */
+@media (max-width: 992px) {
+    .dt-images {
+        flex-direction: column; /* На средних экранах миниатюры под фото */
+        align-items: center;
+    }
+    .dt-thumbnails-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .dt-product-name {
+        font-size: 1.8rem;
+    }
+    .dt-description {
+        font-size: 1rem;
+    }
+    .dt-price {
+        font-size: 1.1rem;
+    }
+    .dt-thumbnails-container {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 480px) {
+    .dt-product-name {
+        font-size: 1.5rem;
+    }
+    .dt-description {
+        font-size: 0.9rem;
+    }
+    .dt-price {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+  .review-item {
+    padding: 12px 0;
+  }
+  .product-reviews h3 {
+    font-size: 1.4rem;
+  }
+}
