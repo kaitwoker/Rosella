@@ -1,0 +1,114 @@
+/* Основной контейнер */
+.constructor-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: 'Montsterrat', sans-serif;
+  }
+  
+  /* Сетка карточек — 3 столбца на десктопе */
+  .flower-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 равномерных столбца */
+    gap: 30px;
+    justify-items: center;
+  }
+  
+  /* Карточка цветка */
+  .flower-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    max-width: 300px; /* Ограничиваем максимальную ширину карточки */
+    width: 100%;
+    padding: 25px;
+    background: #fff;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Контейнер для изображения */
+  .flower-image-container {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Изображение – фиксированный размер, без сжатия */
+  .flower-image {
+    width: 250px;
+    height: 250px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Текстовые элементы */
+  .flower-name {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  .flower-price {
+    font-size: 1.1rem;
+  }
+  
+  /* Элементы управления количеством */
+  .quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .quantity-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .quantity-input {
+    width: 60px;
+    font-size: 1.2rem;
+    margin: 0 20px;
+    text-align: center;
+  }
+  
+  /* Анимация при наведении */
+  .flower-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+  .flower-card:hover .flower-image {
+    transform: scale(1.05);
+  }
+  
+  /* Адаптивность для планшетов */
+  @media (max-width: 768px) {
+    .flower-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 столбца */
+    }
+    .flower-card {
+      max-width: 280px;
+    }
+  }
+  
+  /* Адаптивность для мобильных */
+  @media (max-width: 480px) {
+    .flower-grid {
+      grid-template-columns: 1fr; /* 1 столбец */
+    }
+    .flower-image-container {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+    }
+    .flower-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
