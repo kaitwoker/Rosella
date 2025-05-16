@@ -1,0 +1,38 @@
+<!-- products-list.html -->
+<div class="row" id="products-list">
+    {% for product in products %}
+    <div class="col-md-3 mb-4">
+        <div class="rkz-product-card">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="rkz-product-image">
+            <div class="rkz-product-content">
+                <h5 class="rkz-product-name">{{ product.name }}</h5>
+                <p class="rkz-product-price">
+                    {% if product.discount > 0 %}
+                        <span class="rkz-old-price">{{ product.price }} ₸</span>
+                        <span class="rkz-discount-price">{{ product.sell_price }} ₸</span>
+                    {% else %}
+                        {{ product.price }} ₸
+                    {% endif %}
+                </p>
+            </div>
+            <div class="rkz-card-actions d-flex justify-content-between align-items-center">
+                <a href="{{ product.get_absolute_url }}" class="btn rkz-btn-primary">Подробнее</a>
+                <a href="{% url 'favorites:favorites_add' product.id %}" class="rkz-favorite-link"></a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p class="no-products">Товары не найдены</p>
+    {% endfor %}
+</div>
+
+<!-- Пагинация -->
+<div class="rkz-pagination">
+    <ul class="pagination-list">
+        {% for i in products.paginator.page_range %}
+            <li class="rkz-page-item {% if i == products.number %}active{% endif %}">
+                <a class="rkz-page-link" href="?page={{ i }}&sort={{ current_sort }}&price_min={{ price_min }}&price_max={{ price_max }}&query={{ query }}&flowers={{ flower_filter|join:',' }}">{{ i }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

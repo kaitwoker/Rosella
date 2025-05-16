@@ -1,0 +1,121 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<!-- БАННЕР -->
+<section class="hero">
+</section>
+
+<!-- ТЕКСТ И КНОПКА -->
+<div class="hero-content">
+    <h1>Романтика в каждом цветке</h1>
+    <p>Нежные букеты и подарки для самых особенных моментов</p>
+    <a href="{% url 'main:product_list' %}" class="btn btn-primary">Перейти в каталог</a>
+</div>
+
+<!-- ПРЕДЛОЖЕНИЕ ДНЯ -->
+<section class="deal-of-the-day">
+    <h2 class="section-title">ПРЕДЛОЖЕНИЕ ДНЯ</h2>
+    <div class="products-container">
+        {% for product in products_day %}
+        <div class="product-card">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <p class="price">
+                    <span class="new-price">{{ product.new_price }} ₸</span>
+                    {% if product.old_price > product.new_price %}
+                        <span class="old-price">{{ product.old_price }} ₸</span>
+                    {% endif %}
+                </p>
+                <!-- Блок с кнопками "Подробнее" и "Избранное" -->
+                <div class="rkz-card-actions d-flex justify-content-between align-items-center">
+                    <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                    <a href="{% url 'favorites:favorites_add' product.id %}" class="rkz-favorite-link">
+                        <img src="{% static 'img/fullheart.png' %}" alt="Добавить в избранное" class="rkz-heart-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ТОВАРЫ СО СКИДКОЙ -->
+<section class="discount-products">
+    <h2 class="section-title">ТОВАРЫ СО СКИДКОЙ</h2>
+    <div class="products-container">
+        {% for product in discounted_products %}
+        <div class="product-card">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <p class="price">
+                    <span class="new-price">{{ product.sell_price }} ₸</span>
+                    <span class="old-price">{{ product.price }} ₸</span>
+                </p>
+                <div class="rkz-card-actions d-flex justify-content-between align-items-center">
+                    <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                    <a href="{% url 'favorites:favorites_add' product.id %}" class="rkz-favorite-link">
+                        <img src="{% static 'img/fullheart.png' %}" alt="Добавить в избранное" class="rkz-heart-icon">
+                    </a>                    
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <p>Нет товаров со скидкой.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Конструктор -->
+<section class="custom-bouquet-section">
+    <h2 class="section-title">Конструктор букета</h2>
+    <div class="custom-bouquet-container">
+      <div class="custom-bouquet-card">
+        <h2>Конструктор собственного букета</h2>
+        <p>Выбери любимые цветы, оформление и цветовую гамму, чтобы собрать идеальный букет.</p>
+        <a href="/constructor" class="btn btn-primary">Подробнее</a>
+      </div>
+      <div class="custom-bouquet-info">
+        <p>Соберите идеальный букет по своему вкусу! Подходит для подарка, романтического сюрприза или любого повода.</p>
+      </div>
+    </div>
+  </section>
+  
+
+
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<!-- Swiper.js стили -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+{% endblock extra_css %}
+
+{% block extra_js %}
+<!-- Swiper.js скрипт -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,  // Бесконечный цикл
+        autoplay: {
+            delay: 5000, // Автопрокрутка каждые 5 секунд
+            disableOnInteraction: false
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
+        slidesPerView: 1,
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+        }
+    });
+});
+</script>
+{% endblock extra_js %}

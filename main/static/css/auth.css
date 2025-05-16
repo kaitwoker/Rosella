@@ -1,0 +1,74 @@
+/* ================== Общая обертка для форм аутентификации ================== */
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок формы */
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* Стиль для формы */
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Группа полей формы */
+.auth-container form .form-group {
+    margin-bottom: 15px;
+}
+
+/* Метки полей */
+.auth-container form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+}
+
+/* Инпуты */
+.auth-container form input[type="text"],
+.auth-container form input[type="email"],
+.auth-container form input[type="password"],
+.auth-container form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Сообщения об ошибках */
+.auth-container .errorlist {
+    color: #d9534f;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+/* Кнопка отправки формы */
+.auth-container form button {
+    padding: 10px;
+    border: none;
+    background-color: #7300d1;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.auth-container form button:hover {
+    background-color: #8100eb;
+}
